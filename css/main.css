@@ -1457,17 +1457,30 @@ input::-moz-focus-inner {
 /* -------------------------------------------------------------------
  * ## header logo
  * ------------------------------------------------------------------- */
-.header-logo {
+ .header-logo {
   z-index: 101;
   display: inline-block;
   margin: 0;
   padding: 0;
   transition: all .3s;
-  -webkit-transform: translate3d(0, -50%, 0);
-  transform: translate3d(0, -50%, 0);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
   position: absolute;
-  right: 8rem;
+  right: 1rem; /* Keeps the logo on the right side */
   top: 50%;
+}
+
+/* For smaller screens (e.g., iPhone 15 Pro, 398x744) */
+@media (max-width: 430px) {
+  .header-logo {
+    right: 0.5rem; /* Adjust the right margin for smaller screens */
+    width: auto; /* Let the logo adjust naturally */
+  }
+
+  .header-logo img {
+    width: 30px; /* Adjust the size for smaller screens */
+    height: auto; /* Maintain aspect ratio */
+  }
 }
 
 .header-logo a {
@@ -1478,9 +1491,10 @@ input::-moz-focus-inner {
 }
 
 .header-logo img {
-  width: 140px;
+  width: 40px;
   height: 23px;
 }
+
 
 
 /* -------------------------------------------------------------------
@@ -1581,7 +1595,7 @@ input::-moz-focus-inner {
 @media screen and (max-width:400px) {
   .header-logo {
     right: auto;
-    left: 4.2rem;
+    left: 18rem;
   }
 
   .header-email {
